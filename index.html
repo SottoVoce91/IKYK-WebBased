@@ -45,8 +45,8 @@ function choose(answer) {
   if (step === 0) {
     if (answer === "b") score++;
     show("Where might I randomly travel at night?", [
-      {label: "Clubs", value: "a"},
-      {label: "My kitchen", value: "b"},
+      {label: "Coffee Shops", value: "a"},
+      {label: "Speakeasy Bars", value: "b"},
       {label: "Anywhere in the world", value: "c"}
     ]);
     step++;
@@ -55,7 +55,7 @@ function choose(answer) {
   else if (step === 1) {
     if (answer === "c") score++;
     show("What happens if you get this right?", [
-      {label: "Nothing", value: "a"},
+      {label: "Nada", value: "a"},
       {label: "You get my attention", value: "b"},
       {label: "You unlock something", value: "c"}
     ]);
@@ -77,9 +77,9 @@ function choose(answer) {
 
 // start
 show("What do you think I do for fun?", [
-  {label: "Watch Netflix", value: "a"},
-  {label: "Solve cybersecurity challenges", value: "b"},
-  {label: "Sleep", value: "c"}
+  {label: "Watching documentaries", value: "a"},
+  {label: "Solving cybersecurity challenges", value: "b"},
+  {label: "Doomscrolling on Reddit", value: "c"}
 ]);
 
 </script>
