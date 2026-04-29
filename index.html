@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Curiosity Test</title>
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: monospace;
+      padding: 30px;
+    }
+    button {
+      background: transparent;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00ffcc;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Initializing...</h2>
+<div id="game"></div>
+
+<script>
+let score = 0;
+let step = 0;
+
+const game = document.getElementById("game");
+
+function show(text, options=[]) {
+  game.innerHTML = `<p>${text}</p>` +
+    options.map(o => `<button onclick="choose('${o.value}')">${o.label}</button>`).join("");
+}
+
+function choose(answer) {
+  if (step === 0) {
+    if (answer === "b") score++;
+    show("Where might I randomly travel at night?", [
+      {label: "Clubs", value: "a"},
+      {label: "My kitchen", value: "b"},
+      {label: "Anywhere in the world", value: "c"}
+    ]);
+    step++;
+  }
+
+  else if (step === 1) {
+    if (answer === "c") score++;
+    show("What happens if you get this right?", [
+      {label: "Nothing", value: "a"},
+      {label: "You get my attention", value: "b"},
+      {label: "You unlock something", value: "c"}
+    ]);
+    step++;
+  }
+
+  else {
+    if (answer === "b" || answer === "c") score++;
+
+    if (score >= 3) {
+      show("…interesting.<br><br>You unlocked: <b>042</b><br><br>If you send it to me, I’ll know.");
+    } else if (score === 2) {
+      show("Not bad. You’ve got potential.");
+    } else {
+      show("Hmm. You didn’t quite figure me out.");
+    }
+  }
+}
+
+// start
+show("What do you think I do for fun?", [
+  {label: "Watch Netflix", value: "a"},
+  {label: "Solve cybersecurity challenges", value: "b"},
+  {label: "Sleep", value: "c"}
+]);
+
+</script>
+
+</body>
+</html>
